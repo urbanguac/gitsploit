@@ -1,0 +1,21 @@
+for Y in {2013..2017}
+do
+	mkdir $Y
+	for M in {1..12}
+	do
+		cd $Y
+		mkdir $M
+		cd ../
+		for D in {1..27}
+		do
+			cd $Y/$M
+			mkdir $D
+			cd $D
+			echo "Committed on $M/$D/$Y" > commit.md
+			cd ../../../
+			export GIT_COMMITTER_DATE="$Y-$M-$D 12:00:00"
+			export GIT_AUTHOR_DATE="$Y-$M-$D 12:00:00"
+			git add . && git commit -am --date="$Y-$M-$D 12:00:00" 'Committed on $M $D $Y'
+		done
+	done
+done
