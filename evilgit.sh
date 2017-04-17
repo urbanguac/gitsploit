@@ -1,4 +1,4 @@
-for Y in {2013..2017}
+for Y in {2017..2018}
 do
 	mkdir $Y
 	for M in {1..12}
@@ -17,6 +17,7 @@ do
 			export GIT_AUTHOR_DATE="$Y-$M-$D 12:00:00"
 			git add $Y/$M/$D/commit.md
 			git commit --date="$Y-$M-$D 12:00:00" -m "Committed on $M $D $Y"
+			git push origin master
 		done
 	done
 done
