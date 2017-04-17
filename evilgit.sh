@@ -15,7 +15,8 @@ do
 			cd ../../../
 			export GIT_COMMITTER_DATE="$Y-$M-$D 12:00:00"
 			export GIT_AUTHOR_DATE="$Y-$M-$D 12:00:00"
-			git add . && git commit -am --date="$Y-$M-$D 12:00:00" 'Committed on $M $D $Y'
+			git add $Y/$M/$D/commit.md
+			git commit --date="$Y-$M-$D 12:00:00" -m "Committed on $M $D $Y"
 		done
 	done
 done
