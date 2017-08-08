@@ -6,7 +6,7 @@ do
 		cd $Y
 		mkdir $M
 		cd ../
-		for D in {28..31}
+		for D in {1..31}
 		do
 			cd $Y/$M
 			mkdir $D
