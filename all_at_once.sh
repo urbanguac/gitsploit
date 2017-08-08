@@ -1,6 +1,7 @@
 mkdir fake
 cd fake
-for i in {1..20000}
+# you can't do more than 1000 commits at once as of august 8 2017
+for i in {1..1000}
 do
 	echo "Hello" > $i.txt
 	git add $i.txt
