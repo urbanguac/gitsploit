@@ -1,4 +1,4 @@
-NUMBER_OF_COMMITS_PER_DAY = 50
+# a million commits
 for Y in {2016..2018}
 do
 	mkdir $Y
@@ -11,11 +11,12 @@ do
 		do
 			cd $Y/$M
 			mkdir $D
-			cd $D
-			for i in {1..$NUMBER_OF_COMMITS_PER_DAY}
+			cd ../../../
+			# the next line controls number of commits per day
+			for i in {1..50}
 			do
 				cd $Y/$M/$D
-				echo "Commit # $i on $M/$D/$Y" > commit$i.md
+				echo "Commit $i on $M/$D/$Y" > commit$i.md
 				cd ../../../
 				export GIT_COMMITTER_DATE="$Y-$M-$D 12:00:00"
 				export GIT_AUTHOR_DATE="$Y-$M-$D 12:00:00"
