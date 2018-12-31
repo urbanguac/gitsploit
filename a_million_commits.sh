@@ -12,14 +12,14 @@ do
 			mkdir $D
 			cd $D
 			# the next line controls number of commits per day
-			for i in {1..10}
-			do
-				echo "Commit $i on $M/$D/$Y" > commit.md
-				export GIT_COMMITTER_DATE="$Y-$M-$D 12:00:00"
-				export GIT_AUTHOR_DATE="$Y-$M-$D 12:00:00"
-				git add commit.md -f
-				git commit --date="$Y-$M-$D 12:00:00" -m "Committed $i on $M $D $Y"
-			done
+	#		for i in {1..10}
+	#		do
+			echo "Commit $i on $M/$D/$Y" > commit.md
+			export GIT_COMMITTER_DATE="$Y-$M-$D 12:00:00"
+			export GIT_AUTHOR_DATE="$Y-$M-$D 12:00:00"
+			git add commit.md -f
+			git commit --date="$Y-$M-$D 12:00:00" -m "Committed $i on $M $D $Y"
+	#		done
 			cd ../
 		done
 		cd ../
