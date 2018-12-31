@@ -2,29 +2,29 @@
 for Y in {2016..2018}
 do
 	mkdir $Y
+	cd $Y
 	for M in {1..12}
 	do
-		cd $Y
 		mkdir $M
-		cd ../
+		cd $M
 		for D in {1..31}
 		do
-			cd $Y/$M
 			mkdir $D
-			cd ../../../
+			cd $D
 			# the next line controls number of commits per day
-			for i in {1..50}
+			for i in {1..10}
 			do
-				cd $Y/$M/$D
-				echo "Commit $i on $M/$D/$Y" > commit$i.md
-				cd ../../../
+				echo "Commit $i on $M/$D/$Y" > commit.md
 				export GIT_COMMITTER_DATE="$Y-$M-$D 12:00:00"
 				export GIT_AUTHOR_DATE="$Y-$M-$D 12:00:00"
-				git add $Y/$M/$D/commit$i.md -f
+				git add commit.md -f
 				git commit --date="$Y-$M-$D 12:00:00" -m "Committed $i on $M $D $Y"
 			done
+			cd ../
 		done
+		cd ../
 	done
+	cd ../
 done
 git push origin master
 git rm -rf 20**
