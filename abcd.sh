@@ -11,6 +11,7 @@ do
         do
             mkdir $D
             cd $D
+
             # generate a random number of commits per day
             iter=$(shuf -i 1-20 -n 1)
             for ((i=0; i<$iter; i++))
@@ -21,6 +22,7 @@ do
                 git add commit.md -f
                 git commit --date="$Y-$M-$D 12:00:00" -m "Committed $i on $M $D $Y"
             done
+
             cd ../
         done
         cd ../
